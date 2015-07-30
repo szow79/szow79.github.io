@@ -1,0 +1,71 @@
+html {
+
+}
+
+header {
+	color: #333333; font-family: Georgia;
+	text-align: center; display: block;
+}
+
+nav {
+	background-color: #444444; width: 110%; position: relative; left: -1em; display: block;
+	text-align: center;
+}
+
+nav a {
+	font-family: Georgia; font-weight: bold;
+	margin: 1em; text-decoration: none; position: relative; left: -2em;
+}
+
+nav :link {
+	color: white;
+}
+
+nav :visited {
+	color: white;
+}
+
+nav :hover {
+	color: gold;
+}
+
+body {
+	display: block;
+}
+
+#art {
+	color: #333333; display: inline-block; margin: 1em 1em 1em 3em; float: left;
+	width: 60%;
+}
+
+#unknown {
+	color: orange; display: inline-block; margin: 1em 3em 1em 1em; float: right;
+	width: 22%;
+}
+
+#image {
+	color: orange; display: inline-block; margin: 1em 3em 1em 1em; float: right;
+	width: 22%;
+}
+
+
+footer {
+		background-color: #444444; width: 100%; position: fixed; bottom: 0em; left: 0em; 
+		text-align: right;
+}
+
+footer a {
+	margin: 1em; text-decoration: none; 
+}
+
+footer :link {
+	color: white;
+}
+
+footer :visited {
+	color: white;
+}
+
+footer :hover {
+	color: gold;
+}
