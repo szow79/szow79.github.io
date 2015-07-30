@@ -1,71 +1,56 @@
-html {
 
+html { font-family: Georgia; }
+
+.txt-c { text-align: center; }
+
+.txt-r { text-align: right; }
+
+.color-1 { color: #333333; }
+
+.color-2 { color: #444444; }
+
+.color-h { color: orange; }
+
+.bg-color-1 { background-color: #333333; }
+
+.bg-color-2 { background-color: #444444; }
+
+.wd-110 { width: 110%; }
+
+.wd-60 { width: 60%; }
+
+.wd-22 { width: 22%; }
+
+.bold { font-weight: bold; }
+
+.margin-sm { margin: 1em; }
+
+.margin-m {margin: 2em; }
+
+.txt-dec-n { text-decoration: none; }
+
+.dp-ib { display: inline-block; }
+
+.fl-l { float: left; }
+
+.fl-r { float: right; }
+
+.pos-f { position: fixed; }
+
+.pos-b { bottom}
+
+nav { position: relative; left: -2em; }
+
+nav > a {
+	font-family: Georgia; font-weight: bold; margin: 1em; 
+	text-decoration: none; position: relative; left: -2em;
 }
 
-header {
-	color: #333333; font-family: Georgia;
-	text-align: center; display: block;
-}
+nav :link, nav :visited, footer :link, footer :visited { color: white; }
 
-nav {
-	background-color: #444444; width: 110%; position: relative; left: -1em; display: block;
-	text-align: center;
-}
+nav :hover, footer :hover { color: gold; }
 
-nav a {
-	font-family: Georgia; font-weight: bold;
-	margin: 1em; text-decoration: none; position: relative; left: -2em;
-}
+footer { width: 100%; position: fixed; bottom: 0em; left: 0em; }
 
-nav :link {
-	color: white;
-}
+footer > a { margin: 1em; text-decoration: none; }
 
-nav :visited {
-	color: white;
-}
-
-nav :hover {
-	color: gold;
-}
-
-body {
-	display: block;
-}
-
-#art {
-	color: #333333; display: inline-block; margin: 1em 1em 1em 3em; float: left;
-	width: 60%;
-}
-
-#unknown {
-	color: orange; display: inline-block; margin: 1em 3em 1em 1em; float: right;
-	width: 22%;
-}
-
-#image {
-	color: orange; display: inline-block; margin: 1em 3em 1em 1em; float: right;
-	width: 22%;
-}
-
-
-footer {
-		background-color: #444444; width: 100%; position: fixed; bottom: 0em; left: 0em; 
-		text-align: right;
-}
-
-footer a {
-	margin: 1em; text-decoration: none; 
-}
-
-footer :link {
-	color: white;
-}
-
-footer :visited {
-	color: white;
-}
-
-footer :hover {
-	color: gold;
-}
