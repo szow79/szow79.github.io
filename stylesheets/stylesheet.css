@@ -5,6 +5,8 @@ html { font-family: Georgia; }
 
 .txt-r { text-align: right; }
 
+.txt-dec-n { text-decoration: none; }
+
 .color-1 { color: #333333; }
 
 .color-2 { color: #444444; }
@@ -27,8 +29,6 @@ html { font-family: Georgia; }
 
 .margin-m {margin: 2em; }
 
-.txt-dec-n { text-decoration: none; }
-
 .dp-ib { display: inline-block; }
 
 .fl-l { float: left; }
@@ -46,9 +46,15 @@ nav > a {
 	text-decoration: none; position: relative; left: -2em;
 }
 
-nav :link, nav :visited, footer :link, footer :visited { color: white; }
+address > a {
+	font-family: Georgia; font-weight: bold; margin: 1em; 
+	text-decoration: none;
+}
 
-nav :hover, footer :hover { color: gold; }
+
+nav :link, nav :visited, footer :link, footer :visited, address :visited { color: white; }
+
+nav :hover, footer :hover, address :hover { color: gold; }
 
 section { margin-bottom: 0.4em; }
 
