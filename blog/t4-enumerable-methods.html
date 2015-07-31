@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link href="../stylesheets/stylesheet.css" rel="stylesheet" type="text/css" />
+	<title>Enumerable</title>
+</head>
+
+
+<main role="main">
+
+	<header class="txt-c color-1">
+		<h1>Week <font size="50" color="orange">4</font></h1>
+	</header>
+
+	<nav class="bg-color-2 wd-110 txt-c">
+		<a href="../index.html">Home</a>
+		<a href="#">About Me</a> 
+		<a href="#">Recent Projects</a> 
+		<a href="blog-list.html">Blog</a> 
+		<a href="#">Contact</a>
+	</nav>
+
+	<main role="main">
+
+	<article class="color-1 dp-ib wd-60 fl-l margin-m">
+
+		<font color="RoyalBlue"><h2>Ruby Enumerables and Examples</h2></font>
+
+		<section>In the beginning of learning Ruby, we learn to deal with one thing at a time as simple as calculating 1 + 2. There are times that I wonder what if I’m given hundreds or thousands of simple calculations – that will be too much of tedious work. This is when enumerable comes handy. Enumerable methods are expert in handling multiple of items at a time. In this post I'm going to talk about a few Ruby Enumerables I've recently learned.</section>
+
+		<h4>.partition</h4>
+
+		<section>Ruby will return two arrays. The first array contains items that meet the condition, and the second array contains the rest of items. If no item meets the condition or all items meet the condition, ruby will still return two arrays and one of the arrays will be empty.</section>
+
+		<section>Syntax</h4>
+		<section>Array.partition { |item| condition} #=> [[items that meet the condition],[the rest of items]]</section>
+
+		<h4>Examples</h4>
+		<section>[1,2,3,4].parition { |n| n > 2 } #=> [[3,4],[1,2]]</section>
+		<section>[2,4,6,8].parition { |n| n.odd? } #=> [[],[2,4,6,8]]</section>
+
+		<h4>.group_by</h4>
+
+		<section>Ruby will iterate through each item with the given condition and place each item into different arrays by their result. Each result will be stored as a hash key pointing to corresponding items as hash values.</section>
+
+		<h4>Syntax</h4>
+		<section>Array.group_by { |item| condition } #=> {result#1 => [items], result#2 => [items]...and possibly more results}</section>
+
+		<h4>Examples</h4>
+		<section>[1,2,3,4].group_by { |n| n > 2 } #=> {false => [1,2], true => [3,4]}</section>
+		<section>[1,2,3,4].group_by { |n| n % 2 } #=> {1 => [1, 3], 0 => [2, 4]}</section>
+
+		<h4>.cycle</h4>
+
+		<section>Ruby cycles through each item under condition n times. If argument is not given, it will result an infinite loop.</section>
+
+		<h4>Syntax</h4>
+		<section>Array.cycle(n) {|item| condition} #=> repeats the condition until n times</section>
+
+		<h4>Examples</h4>
+		<section>[1,2,3,4].cycle(2) { |n| puts n } #=> 1,2,3,4,1,2,3,4</section>
+		<section>[1,2,3,4].cycle { |n| puts n } #=> 1,2,3,4,1,2,3,4,1,2,3…</section>
+
+		<br><section>That’s about it for now. I look forward to share more learning experience with you.</section>
+
+	</article>
+
+	<article class="color-h dp-ib wd-22 fl-r margin-m">
+		<section><h2></h2>
+			<img src="../img/t4.png" height="1000" width="250" />
+		</section>
+	</article>
+	</main>	
+
+	<footer class="bg-color-2 txt-r">
+		<a href="#">Top</a>|
+		<a href="https://github.com/szow79">GitHub</a>|
+		<a href="https://www.linkedin.com/in/zhousc">LinkedIn</a>|
+		<a href="https://twitter.com/szow79">Twitter</a>|
+		<a href="#">Something Else</a>		
+	</footer>
+
+</body>
+</html>

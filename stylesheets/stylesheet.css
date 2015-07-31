@@ -50,6 +50,8 @@ nav :link, nav :visited, footer :link, footer :visited { color: white; }
 
 nav :hover, footer :hover { color: gold; }
 
+section { margin-bottom: 0.4em; }
+
 footer { width: 100%; position: fixed; bottom: 0em; left: 0em; }
 
 footer > a { margin: 1em; text-decoration: none; }
