@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link href="../stylesheets/stylesheet.css" rel="stylesheet" type="text/css" />
+	<title>Ruby Class</title>
+</head>
+
+<body>
+	<header class="txt-c color-1">
+		<h1>Week <font size="50" color="crimson">5</font></h1>
+	</header>
+
+	<nav class="bg-color-2 wd-110 txt-c">
+		<a href="../index.html">Home</a>
+		<a href="../about.html">About Me</a> 
+		<a href="../project-list.html">Recent Projects</a> 
+		<a href="../blog-list.html">Blog</a> 
+		<a href="../contact.html">Contact</a>
+	</nav>
+
+	<main role="main">
+
+	<article class="color-1 dp-ib wd-60 fl-l margin-m">
+	
+		<font color="ForestGreen"><h2>Ruby Class</h2></font>
+			
+		<section>Class in Ruby is like objects in our world. It carries data, or characteristics. If we are a wine maker, we make wine, and we can make different kinds of wine – Cabernet Sauvignon, Merlot, Sauvignon Blanc. Each kind of wine has different taste, color, and best food to pair with. Let me demonstrate the class concept with this example.</section>
+
+		<section>Like defining a method, the first step to create a class in ruby is to name it. See how the class name is different than method names:</section>
+
+		<h5>Class <font color="red">W</font>ine<br>end</h5>
+
+		<section>Cabernet Sauvignon is our first wine! This is how we can call it out:</section>
+
+		<h5>wine_number = Wine.new(“wine_name”, “taste”, “color”, “pairing_food”)</h5>
+
+		<section>But before we start to make our first wine, we know we want to make more than one type of wine. We need to tell ruby that each time we make a new wine with “Wine.new”, we are trying to make a different kind of wine. So how do we do that? It’s easy.</section>
+
+		<h5>Class Wine<br>&nbsp&nbspdef initialize(wine_name)<br>&nbsp&nbsp@wine_name = wine_name<br>end</h5>
+		
+
+		<section>The initialize method brings up the concept “instance variable” which tells ruby each time we call out “Wine.new”, we are creating an instance of such class. After adding the initialize method, now we can proceed with our 3 kinds of wine with their ingredient and :</section>
+
+		<h5>wine_1 = Wine.new(“cabernet_sauvignon” , “rich currant”, “red”, “red meat”)</h5>
+
+		<h5>wine_2 = Wine.new(“merlot”, “smooth black-cherry and herbal”, “red”, “any food”)</h5>
+
+		<h5>wine_3 = Wine.new(“sauvignon_blanc”, “sour fruit”, “white”, “seafood”)</h5>
+
+		<section>Now we have 3 kinds of wine with their descriptions!</section>
+
+		<section>Let’s move on to the next step to make instance method inside class that will return each instance’s description upon calling:</section>
+
+		<h5>Class Wine<br>&nbsp&nbsp def initialize(wine_name)<br>&nbsp&nbsp&nbsp&nbsp @wine_name = wine_name<br>&nbsp&nbsp end<br><br>&nbsp&nbsp def taste<br>&nbsp&nbsp&nbsp&nbsp @taste<br>&nbsp&nbsp end<br><br>&nbsp&nbsp def color<br>&nbsp&nbsp&nbsp&nbsp @color<br>&nbsp&nbsp end<br><br>&nbsp&nbsp def pairing_food<br>&nbsp&nbsp&nbsp&nbsp @pairing_food<br>&nbsp&nbsp end<br>end</h5>
+
+		<section>The @ symbol in front of variable meaning it’s an instance variable. If I input</section>
+
+		<h5>wine_1.pairing_food</h5>
+
+		<section>Ruby will know I’m referring to the instance variable of wine_1, which is “cabernet sauvignon” and return its pairing food “red meat”</section>
+
+		<section>I hope it's not overwhelming. I can talk a lot more about Ruby class. Below is an interactive bingo game I've built. You may download it and run it through terminal!</section>
+
+		<a href="../files/interactive-bingo.rb" download>download file</a>
+
+
+	</article>
+
+	<article class="color-h dp-ib wd-22 fl-r margin-m">
+		<section><h2></h2>
+			<img src="../img/t5.png" height="800" width="350" />
+		</section>
+	</article>
+	</main>
+
+	<footer class="bg-color-2 txt-r">
+		<a href="#">Top</a>|
+		<a href="https://github.com/szow79">GitHub</a>|
+		<a href="https://www.linkedin.com/in/zhousc">LinkedIn</a>|
+		<a href="https://twitter.com/szow79">Twitter</a>|
+		<a href="#">Something Else</a>		
+	</footer>
+
+</body>
+</html>
