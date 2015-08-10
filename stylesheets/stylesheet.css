@@ -1,6 +1,8 @@
 
 html { font-family: Georgia; }
 
+.border-2 { border: 2px solid #333333; }
+
 .txt-c { text-align: center; }
 
 .txt-r { text-align: right; }
@@ -17,11 +19,13 @@ html { font-family: Georgia; }
 
 .bg-color-2 { background-color: #444444; }
 
+.bg-color-h { background-color: orange; }
+
 .wd-110 { width: 110%; }
 
 .wd-60 { width: 60%; }
 
-.wd-22 { width: 22%; }
+.wd-22 { width: 28%; }
 
 .bold { font-weight: bold; }
 
