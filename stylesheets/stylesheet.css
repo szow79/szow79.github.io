@@ -8,6 +8,12 @@ html { font-family: Georgia; }
 
 .txt-dec-n { text-decoration: none; }
 
+.cl-b { clear: both; }
+
+.cl-l { clear: left; }
+
+.cl-r { clear: right; }
+
 .color-1 { color: #333333; }
 
 .color-2 { color: #444444; }
@@ -22,9 +28,15 @@ html { font-family: Georgia; }
 
 .bg-color-w { background-color: white; }
 
+.wd-80 { width: 80%; }
+
+.wd-90 { width: 90%; }
+
 .wd-100 { width: 100%; }
 
 .wd-110 { width: 110%; }
+
+.wd-40 { width: 40%; }
 
 .wd-60 { width: 60%; }
 
@@ -36,6 +48,8 @@ html { font-family: Georgia; }
 
 .margin-m { margin: 2em; }
 
+.margin-l { margin: 3em; }
+
 .margin-a { margin: 2em 2em 0em 2em; }
 
 .dp-ib { display: inline-block; }
@@ -46,7 +60,7 @@ html { font-family: Georgia; }
 
 .l-30 { left: 30%;}
 
-.l-40 { left: 40%;}
+.l-40 { left: 48%;}
 
 .l-50 { left: 50%;}
 
@@ -84,6 +98,7 @@ address > a {
 	text-decoration: none;
 }
 
+li { margin-top: 1em; }
 
 nav :link, nav :visited, footer :link, footer :visited, address :visited { color: white; }
 
