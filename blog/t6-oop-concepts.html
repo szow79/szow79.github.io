@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link href="../stylesheets/stylesheet.css" rel="stylesheet" type="text/css" />
+	<title>Variable Scope</title>
+</head>
+
+<body>
+	<header class="color-1 bg-color-w">
+		<h1 class="txt-c">Week <font size="50" color="LightBlue">6</font></h1>
+	</header>
+
+	<nav class="bg-color-2 wd-110 txt-c">
+		<a href="../index.html">Home</a>
+		<a href="../about.html">About Me</a> 
+		<a href="../project-list.html">Recent Projects</a> 
+		<a href="../blog-list.html">Blog</a> 
+		<a href="../contact.html">Contact</a>
+	</nav>
+
+	<main role="main">
+
+	<article class="color-1 dp-ib wd-60 fl-l margin-m">
+	
+		<font color="Coral"><h2>Variable Scope in Ruby</h2></font>
+			
+		<section>There are a few kinds of variables in ruby and each of the variable serves differently. As an entry-level rubyist, it’s one of the most important basics we need to master.</section>
+
+		<h4>Local Variable</h4>
+
+		<section>Local variables are variables created with a value assigned. They are called local variables because they are local, and they only work within the scope they were created. For example, a local variable created within a method can only be used inside the method. If you want to use the variable outside the method, then you might want to consider using the next variable which I’m going to talk about.</section>
+
+		<h4>Instance Variable & Class Variable</h4>
+
+		<section>Instance variable works for instances of class object. When an instance is created, usually instance variables are created. Each of them starts with an “@” in front of their variable name. For example, @instance_variable.</section>
+
+		<section>Class variable is just like its name – it works within the class. Class variables start with two “@” in the front of their names. For example, @@class_variable would be a class variable that is available for everything in the class.</section>
+
+		<section>It does not matter whether you want to access them outside or inside a method. You can call them anytime you want as long as the scope is within the class. One thing to be careful is the difference between instance variable and class variable. They are both at the class scope. However, instance variable can hold different values in each object instance but class variable is always the same value. Like a can of soda, the flavor of the soda can be an instance variable, and each soda has different flavor. Whereas class variable can be the size of the soda can – it’s one-size for the product line.</section>
+
+		<h4>Global Variable & Constant</h4>
+
+		<section>Global variable and constant can be accessed anywhere in the file. The differences between them are when you try to change a constant, ruby will give you a warning but still let you make the change. Also for global variables, there is a $ in front of their names, like $global_variable. On the other hand, constant names are all capped.</section>
+
+	</article>
+
+	<article class="color-h dp-ib wd-22 fl-r margin-m">
+		<section><h2></h2>
+			<img src="../img/t6.png" height="350" width="350" />
+		</section>
+	</article>
+	</main>
+
+	<footer class="bg-color-2 txt-r">
+		<a href="#">Top</a>|
+		<a href="https://github.com/szow79">GitHub</a>|
+		<a href="https://www.linkedin.com/in/zhousc">LinkedIn</a>|
+		<a href="https://twitter.com/szow79">Twitter</a>|
+		<a href="#">Something Else</a>		
+	</footer>
+
+</body>
+</html>

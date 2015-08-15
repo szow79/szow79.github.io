@@ -22,34 +22,46 @@
 # bingo_board.each {|row| p row}
 
 # Release 1: Initial Solution
+$event_list = [
+  "A bad guy just robbed your card. Now you have to start over!",
+  "Errr... A strong wind blew away your card and there is no way you can get it back. Please start over!",
+  "Your dog ate your card. Go get a new one!",
+  "You found out your card is fake and you have to remake one for the next game!",
+  "Oops someone else won before you do. A new game starts.",
+  "You fell asleep. A new game has started when you wake up.",
+  "Your card was caught on fire and burned. You pick up a new card.",
+  "Oh wait...You just realized this is not your card. Go get your own card!"
+]
 
 class BingoBoard
-  attr_reader :bingo_board, :action
   def initialize
     @bingo_board = new_game
-    user_action?
-    user_response(action)
+    @win = false
+    @difficulty = 5
   end
 
-  def call(letter, number)
-    @count += 1
+  def new_game
+    @bingo_board = []
+    starting = 1
+    ending = 15
+    5.times do |x|
+      arr = []
+      5.times {|y| arr << rand(starting...ending)}
+      @bingo_board << arr
+      starting += 15
+      ending += 15
+    end
+    @count = 0
+    @bingo_board[2][2] = "X"
     puts "
-    Round #{@count}"
-    bingo_board.each {|x| 
-      if x[letter_to_index(letter)] == number
-        x[letter_to_index(letter)] = "X"
-        check_win_hor(bingo_board.index(x), letter_to_index(letter))
-        check_win_vert
-        check_win_dia
-      end
-      }
-      bingo_board.each {|row| p row}
-      user_action?
+    A new game has started. This is your new randomized card!"
+    @bingo_board.each {|array| p array}
+    user_action?
   end
 
   def user_action?
     puts "
-    Please tell me a letter from the word 'BINGO', or use available commands: 'new' or 'exit'"
+    Please tell me a letter from the word 'bingo', or use available commands: 'new', 'difficulty', or 'exit'"
     action = gets.chomp!
     user_response(action)
   end
@@ -57,8 +69,25 @@ class BingoBoard
   def user_response(action)
     bingo_str = "bingo"
     if action == "new"
-      initialize
-    elsif bingo_str.include?(action.downcase)
+      new_game
+    elsif action == "difficulty"
+      puts "Please choose a difficulty *easy *normal *hard *impossible(you have to be very lucky to win this)"
+      action = gets.chomp!.downcase
+      @difficulty = 
+      if action == "easy"
+        5
+      elsif action == "normal"
+        10
+      elsif action == "hard"
+        20
+      elsif action == "impossible"
+        40
+      else
+        puts "You didn't choose a correct difficilty. Let's try easy"
+        5
+      end
+      user_action?
+    elsif bingo_str.include?(action.downcase) && action != "" #intereting... "" returns true for #include?
       letter = action
       puts "Please tell me a number between 1-75"
       number = gets.chomp!.to_i
@@ -68,91 +97,91 @@ class BingoBoard
       end
         call(letter, number)
     elsif action == "exit" 
-      return nil
+      abort("
+        ByeBye~Thanks for playing T^T")
     else
-      puts "Please enter a valid entry"
+      puts "Please input a valid entry"
       user_action?
     end
   end
 
-  def check_win_hor(y_index, x_index) # an experiement to make it "smart" enough to detect
-    count = 1
-    left = x_index - 1
-    right = x_index + 1
-    until left < 0
-      if bingo_board[y_index][left] == "X"
-        count += 1
-      else
-        left -= 10
-      end
-      left -= 1
+  def call(letter, number)
+    if rand(1..100) < @difficulty
+      puts $event_list[rand(0..($event_list.size - 1))]
+      return new_game
     end
-    while right < bingo_board[y_index].length
-      if bingo_board[y_index][right] == "X"
-        count +=1
-      else
-        right += 10
-      end
-      right += 1
-    end
-
-    if count == 5
-      puts "Hey, you won! Want to start another game?"    
-    end
-  end
-
-  def check_win_vert
-    puts "Hey, you won! Want to start another game?" if bingo_board[0][0] == "X" && bingo_board[1][0] == "X" && bingo_board[2][0] == "X" && bingo_board[3][0] == "X" && bingo_board[4][0] == "X" 
-    puts "Hey, you won! Want to start another game?" if bingo_board[0][1] == "X" && bingo_board[1][1] == "X" && bingo_board[2][1] == "X" && bingo_board[3][1] == "X" && bingo_board[4][1] == "X" 
-    puts "Hey, you won! Want to start another game?" if bingo_board[0][2] == "X" && bingo_board[1][2] == "X" && bingo_board[2][2] == "X" && bingo_board[3][2] == "X" && bingo_board[4][2] == "X" 
-    puts "Hey, you won! Want to start another game?" if bingo_board[0][3] == "X" && bingo_board[1][3] == "X" && bingo_board[2][3] == "X" && bingo_board[3][3] == "X" && bingo_board[4][3] == "X" 
-    puts "Hey, you won! Want to start another game?" if bingo_board[0][4] == "X" && bingo_board[1][4] == "X" && bingo_board[2][4] == "X" && bingo_board[3][4] == "X" && bingo_board[4][4] == "X" # "dumb" way to check
-  end
-
-  def check_win_dia
-    puts "Hey, you won! Want to start another game?" if bingo_board[0][0] == "X" && bingo_board[1][1] == "X" && bingo_board[2][2] == "X" && bingo_board[3][3] == "X" && bingo_board[4][4] == "X" 
-    puts "Hey, you won! Want to start another game?" if bingo_board[4][0] == "X" && bingo_board[3][1] == "X" && bingo_board[2][2] == "X" && bingo_board[1][3] == "X" && bingo_board[0][4] == "X" # "dumb" way to check
-  end
-
-  def new_game
-    @bingo_board = []
-    starting = 1
-    ending = 15
-    5.times {|x|
-      arr = []
-      5.times {|y| 
-        arr << rand(starting...ending)}
-      @bingo_board << arr
-      starting += 15
-      ending += 15
-    }
-    @count = 0
-    @bingo_board[2][2] = "X"
+    @count += 1
     puts "
-    A New Game Has Started. This is your new randomized card!"
-    @bingo_board.each {|array| p array}
+    Round #{@count}"
+    @bingo_board.each {|x| x[letter_to_index(letter)] = "X" if x[letter_to_index(letter)] == number}
+    check_hor
+    check_vert
+    check_diag
+    win?
+    @bingo_board.each {|row| p row}
+    user_action?
   end
-
+  
   def letter_to_index(letter)
-    letter.upcase!
-    if letter == "B"
+    letter.downcase!
+    if letter == "b"
       0
-    elsif letter == "I"
+    elsif letter == "i"
       1
-    elsif letter == "N"
+    elsif letter == "n"
       2
-    elsif letter == "G"
+    elsif letter == "g"
       3
-    elsif letter == "O"
+    elsif letter == "o"
       4
     else
-      raise ArgumentError.new("Invalid Argument. Please input any letters from the word 'BINGO'")
+      raise ArgumentError.new("Invalid Argument. Please input any letters from the word 'bingo'")
     end
+  end
+
+  def check_hor
+    i = 0
+    while i < @bingo_board.length 
+      @win = true if @bingo_board[i].count("X") == 5
+      i += 1
+    end  
+  end
+
+  def check_vert
+    transpose_board
+    check_hor
+    transpose_board
+  end
+
+  def check_diag
+    check_diag_helper
+    reverse_board
+    check_diag_helper
+    reverse_board
+  end
+
+  def check_diag_helper
+    @win = true if [@bingo_board[0][0], @bingo_board[1][1], @bingo_board[3][3], @bingo_board[4][4]].all? {|element| element == "X"}    
+  end
+
+  def win?
+    puts "
+    lollollol>>>Hey, you won!<<<lollollol ---- Start another new game? 
+    " if @win == true
+  end
+
+  def transpose_board
+    @bingo_board = @bingo_board.transpose
+  end
+
+  def reverse_board
+    @bingo_board.reverse!
   end
 end
 
 # run the game!
-BingoBoard.new 
+BingoBoard.new.user_action?
+
 
 # Release 3: Refactored Solution
 
